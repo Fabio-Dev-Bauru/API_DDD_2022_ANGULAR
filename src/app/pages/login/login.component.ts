@@ -1,19 +1,21 @@
+import { LoginService } from './../../services/login.service';
 import { LoginModel } from './../../models/LoginModel';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
 loginForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-    private router: Router) { }
+    private router: Router, public loginService : LoginService) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group(
@@ -27,6 +29,28 @@ loginForm!: FormGroup;
   submitLogin() {
     debugger
     var dadosLogin = this.loginForm.getRawValue() as LoginModel;
+
+    this.loginService.LoginUsuario(dadosLogin)
+    .subscribe({
+      next: (token: Token) => {
+        debugger
+        var nossoToken = token
+      },
+      error: (error) => {
+
+      }
+    })
+
+
+    // this.loginService.LoginUsuario(dadosLogin)
+    // .subscribe(
+    //   token => {
+    //     debugger
+    //     var nossoToken = token
+    //   },
+    //   erro => {
+
+    //   })
   }
 
 }
