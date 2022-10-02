@@ -1,3 +1,4 @@
+import { AutenticaService } from './../../services/autentica.service';
 import { LoginService } from './../../services/login.service';
 import { LoginModel } from './../../models/LoginModel';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 loginForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-    private router: Router, public loginService : LoginService) { }
+    private router: Router, public loginService : LoginService,
+    private autenticaService: AutenticaService) { }
 
 
   ngOnInit(): void {
@@ -28,32 +30,20 @@ loginForm!: FormGroup;
   }
 
   submitLogin() {
-    debugger
     var dadosLogin = this.loginForm.getRawValue() as LoginModel;
 
-    this.router.navigate(["/noticias"]);
+    this.loginService.LoginUsuario(dadosLogin)
+    .subscribe({
+      next: (token) => {
+        this.autenticaService.DefineToken(token)
+        this.router.navigate(["/noticias"]);
+      },
+      error: (error) => {
 
-    // this.loginService.LoginUsuario(dadosLogin)
-    // .subscribe({
-    //   next: (token: Token) => {
-    //     debugger
-    //     var nossoToken = token
-    //   },
-    //   error: (error) => {
-
-    //   }
-    // })
+      }
+    })
 
 
-    // this.loginService.LoginUsuario(dadosLogin)
-    // .subscribe(
-    //   token => {
-    //     debugger
-    //     var nossoToken = token
-    //   },
-    //   erro => {
-
-    //   })
   }
 
 }

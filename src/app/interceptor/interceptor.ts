@@ -27,7 +27,7 @@ export class Interceptor implements HttpInterceptor{
         })
       }
       else {
-        headers: new HttpHeaders()
+        headers = new HttpHeaders()
         .append("accept", "application/json")
         .append("Content-Type", "application/json")
         .append("Authorization", "Bearer " + this.autenticaService.ObterToken())

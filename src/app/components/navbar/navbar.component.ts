@@ -1,3 +1,4 @@
+import { AutenticaService } from './../../services/autentica.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,13 +9,15 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private autenticaService: AutenticaService) { }
 
   ngOnInit(): void {
   }
 
   sair() {
-    this.router.navigate(["/login"])
+    this.autenticaService.LimparToken();
+    this.router.navigate(["/login"]);
   }
 
 }

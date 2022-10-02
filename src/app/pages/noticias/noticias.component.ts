@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { NoticiaService } from './../../services/noticia.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,17 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private noticiaService: NoticiaService, private router: Router) { }
 
-  listaNoticias!: Array<number>;
+  noticias!: any
 
   ngOnInit(): void {
-    var lista = new Array<number>();
-      for (let i = 0; i < 12; i++) {
-        lista.push(i);
-      }
+    this.ListarNoticias();
 
-      this.listaNoticias = lista;
   }
 
+  ListarNoticias() {
+    this.noticiaService.ListarNoticias()
+    .subscribe({
+      next: (noticias) => {
+        this.noticias = noticias;
+      },
+      error: () => {
+        this.router.navigate(["/login"]);
+      }
+    })
+  }
 }
