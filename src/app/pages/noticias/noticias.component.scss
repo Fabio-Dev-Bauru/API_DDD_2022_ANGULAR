@@ -22,6 +22,8 @@ align-items: center;
 
         .cabecalho-noticia {
           display: flex;
+          justify-content: space-between;
+          padding: 4px;
 
           .data-noticia {
             font-size: 10px;
@@ -43,13 +45,20 @@ align-items: center;
           }
         }
 
-        .texto-noticia {
-          font-size: 10px;
+        .titulo-noticia {
+          font-size: 14px;
           font-family: sans-serif;
           font-weight: 500;
           color: gray;
-          margin-left: 8px;
-          padding: 16px;
+          padding: 8px;
+        }
+
+        .texto-noticia {
+          font-size: 14px;
+          font-family: sans-serif;
+          font-weight: 500;
+          color: gray;
+          padding: 8px 16px;
         }
       }
 

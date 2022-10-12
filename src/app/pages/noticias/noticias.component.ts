@@ -1,3 +1,4 @@
+import { NoticiaViewModel } from './../../models/NoticiaViewModel/NoticiaViewModel';
 import { Router } from '@angular/router';
 import { NoticiaService } from './../../services/noticia.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,15 +12,15 @@ export class NoticiasComponent implements OnInit {
 
   constructor(private noticiaService: NoticiaService, private router: Router) { }
 
-  noticias!: any
+  noticias!: Array<NoticiaViewModel>
 
   ngOnInit(): void {
-    this.ListarNoticias();
+    this.ListarNoticiasCustomizada();
 
   }
 
-  ListarNoticias() {
-    this.noticiaService.ListarNoticias()
+  ListarNoticiasCustomizada() {
+    this.noticiaService.ListarNoticiasCustomizada()
     .subscribe({
       next: (noticias) => {
         this.noticias = noticias;
@@ -29,4 +30,16 @@ export class NoticiasComponent implements OnInit {
       }
     })
   }
+
+  // ListarNoticias() {
+  //   this.noticiaService.ListarNoticias()
+  //   .subscribe({
+  //     next: (noticias) => {
+  //       this.noticias = noticias;
+  //     },
+  //     error: () => {
+  //       this.router.navigate(["/login"]);
+  //     }
+  //   })
+  // }
 }

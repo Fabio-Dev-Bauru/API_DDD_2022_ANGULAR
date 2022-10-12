@@ -4,16 +4,21 @@
     <div class="lista-noticias">
         <ng-container *ngFor="let item of noticias">
             <div class="noticia">
-                <div class="cabecalho=noticias">
+                <div class="cabecalho-noticias">
                     <div class="data-noticia">
-                      Date: {{item.dataCadastro}}
+                        Date: {{item.dataCadastro}}
                     </div>
                     <div class="usuario-noticia">
-                      {{item.titulo}}
+                        User: {{item.usuario}}
                     </div>
                 </div>
+
+                <div class="titulo-noticia">
+                    {{item.titulo}}
+                </div>
+
                 <div class="texto-noticia">
-                  {{item.informacao}}
+                    {{item.informacao}}
                 </div>
               </div>
         </ng-container>
