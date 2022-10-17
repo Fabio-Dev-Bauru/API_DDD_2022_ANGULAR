@@ -1,3 +1,4 @@
+import { AddNoticiaComponent } from './pages/add-noticia/add-noticia.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path: "noticias",component:NoticiasComponent
+  },
+  {
+    path: "addnoticia", component: AddNoticiaComponent
   }
 ];
 

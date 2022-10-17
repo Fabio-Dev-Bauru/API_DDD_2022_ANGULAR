@@ -20,4 +20,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
+  novaNoticia() {
+    this.router.navigate(["/addnoticia"])
+  }
+
 }

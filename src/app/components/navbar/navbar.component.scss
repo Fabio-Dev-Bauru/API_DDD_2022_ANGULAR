@@ -12,7 +12,6 @@ width: 100%;
       width: 120px;
       background: #fff;
       margin: 8px;
-
     }
 
     .grupo-usuario-sair {
@@ -20,6 +19,23 @@ width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      .btn-add-noticia {
+        height: 40px;
+        width: 80px;
+        background: #fff;
+        border-radius: 10px;
+        margin-right: 8px;
+        cursor: pointer;
+        font-size: 12px;
+        font-family: sans-serif;
+        font-weight: 600;
+        color: #8d448d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 1px 5px 0 black;
+      }
 
       .foto-usuario {
         height: 40px;

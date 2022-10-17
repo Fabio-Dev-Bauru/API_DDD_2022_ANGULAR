@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AddNoticiaComponent } from './pages/add-noticia/add-noticia.component';
 
 const serviceAutentica = [Interceptor]
 
@@ -18,6 +19,7 @@ const serviceAutentica = [Interceptor]
     LoginComponent,
     NoticiasComponent,
     NavbarComponent,
+    AddNoticiaComponent,
 
   ],
   imports: [
